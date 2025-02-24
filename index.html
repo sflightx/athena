@@ -18,30 +18,56 @@
         content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9">
 
     <title>Athena | sFlightX</title>
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/import.css">
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/secondary-layout.css">
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/primary-layout.css">
+    <link rel="stylesheet" href="../resources/main/import.css">
+    <link rel="stylesheet" href="../resources/main/secondary-layout.css">
+    <link rel="stylesheet" href="../resources/main/primary-layout.css">
 </head>
 
 <body>
     <header>
-        <a href="https://sflightx.com"><img src="https://i.imgur.com/unbXdTh.png" alt="sFlightX Logo" ></a>
+        <a href="https://athena.sflightx.com"><img id="header-logo" src="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" alt="Athena Logo" ></a>
         <ul id="nav_list">
-            <li><a href="https://sflightx.com/launches"><b>LAUNCHES</b></a><p></p></li>
-            <li><a href="https://sflightx.com/vehicle/maya"><b>MAYA</b></a><p></p></li>
-            <li><a href="https://sflightx.com/vehicle/maya-heavy"><b>MAYA HEAVY</b></a><p></p></li>
-            <li><a href="https://sflightx.com/vehicle/stellar"><b>STELLAR</b></a><p></p></li>
-            <li><a href="https://omegalink.sflightx.com/"><b>OMEGALINK</b></a><p></p></li>
-            <li><a href="https://sflightx.com/missions"><b>MISSIONS</b></a><p></p></li>
+            <li><a href="https://sflightx.com/launches"><b>CONTRACTS</b></a><p></p></li>
+            <li><a href="https://sflightx.com/vehicle/maya"><b>EVENTS</b></a><p></p></li>
+            <li><a href="https://sflightx.com/vehicle/maya-heavy"><b>COMPANIES</b></a><p></p></li>
+            <li><a href="https://sflightx.com/vehicle/stellar"><b>CONTACT</b></a><p></p></li>
+            <li><a href="https://omegalink.sflightx.com/"><b>PROFILE</b></a><p></p></li>
         </ul>
         <span class="material-symbols-outlined" id="menu">menu</span>
     </header>
     <main>
         <!-- Content of the main section -->
-        <div class="banner-full" style="background-color: rgb(34, 34, 34);">
+        <div class="banner-full" style="background-color: rgb(34, 34, 34); height: auto;">
             <h1>Athena</h1>
-            <p>Take contracts in JNO with Athena.</p>
-            <button onclick="window.location.href='';"><h4><b>Join Now</b></h4></button>
+            <p>AthenaJNO is a private program designed for contract-based missions for all JNO companies.</p>
+        </div>
+        <div class="detail">
+            <div class="detail-container">
+                <h1 id="detail-title">Latest Contract</h1>
+                <div id="news-container"></div>
+            </div>
+        </div>
+        <div class="banner" id="banner-info">
+            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
+            <div class="banner-div">
+                <h1 id="banner-title">Join our Multi-National Contract Mission</h1>
+                <p id="subtext">Athena will sustain Drood presence to Droo or Earth's outer space and other planetary missions.</p>
+            </div>
+        </div>
+        <div class="banner" id="banner-info">
+            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
+            <div class="banner-div">
+                <h1 id="banner-title">Open for All</h1>
+                <p id="subtext">You can also launch by applying to our contract masterlist above.</p>
+            </div>
+        </div>
+        <div class="banner" id="banner-info">
+            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
+            <div class="banner-div">
+                <h1 id="banner-title">Excitement Guaranteed</h1>
+                <p id="subtext">Many flights are in the list, be one of them to launch!</p>
+                <button onclick="window.location.href='https://forms.gle/xexM6DfVhLi3WDQ97';"><h4><b>Learn More</b></h4></button>
+            </div>
         </div>
     </main>
     <footer id="footer">
@@ -63,8 +89,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-    <script src="https://sflightx.com/resources/main/init.js"></script>
-    <script src="https://sflightx.com/resources/launches/retrieve.js"></script>
-    <script src="https://sflightx.com/resources/auth/authentication.js"></script>
+    <script src="../resources/main/init.js"></script>
+    <script src="../resources/data/athena-news.js"></script>
+    <script src="../resources/auth/authentication.js"></script>
 </body>
 </html>
