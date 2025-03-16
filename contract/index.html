@@ -5,18 +5,18 @@
     <meta name="version" content="0.3">
     <meta name="version_date" content="5-11-2024">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta name="description" content="Athena">
+    <meta name="description" content="AthenaJNO is a private program designed for contract-based missions for all JNO companies.">
     <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" />
-    <meta property="og:url" content="athena.sflightx.com" />
+    <meta property="og:url" content="athena.sflightx.com/contracts" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@AthenaJNO" />
-    <meta name="twitter:title" content="Athena JNO" />
+    <meta name="twitter:title" content="Athena | Contracts" />
     <meta name="twitter:description"
         content="AthenaJNO is a private program designed for contract-based missions for all JNO companies." />
     <meta name="twitter:image"
         content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9">
 
-    <title>Athena | sFlightX</title>
+    <title>Athena | Contracts</title>
     <link rel="stylesheet" href="https://sflightx.com/resources/main/import.css">
     <link rel="stylesheet" href="https://sflightx.com/resources/main/secondary-layout.css">
     <link rel="stylesheet" href="https://sflightx.com/resources/main/primary-layout.css">
@@ -34,58 +34,15 @@
         </ul>
         <span class="material-symbols-outlined" id="menu">menu</span>
     </header>
-    <main>
+    <main style="padding-top: 7.5vh;">
         <!-- Content of the main section -->
-        <div class="banner-full" style="background-color: rgb(34, 34, 34); height: auto;">
-            <h1>Athena</h1>
-            <p>AthenaJNO is a private program designed for contract-based missions for all JNO companies.</p>
-            <button onclick="window.location.href='https://co.sflightx.com/dashboard'"><h4>Open Company Manifest</h4></button>
-        </div>
-        <div class="banner-stat">
-            <div class="banner-stat-container">
-                <div class="banner-stat-child"><span class="material-symbols-outlined">shield_person</span><h2>Moderation System</h2><p id="subtext">Trained administrators, moderators and staff are joining our program.</p></div>
-                <div class="banner-stat-child"><span class="material-symbols-outlined">contract</span><h2>Contract System</h2><p id="subtext">Acquire company payloads, complete missions and build trust to the JNO launch community!</p></div>
-                <div class="banner-stat-child"><span class="material-symbols-outlined">license</span><h2>Licensing System</h2><p id="subtext">Simulate real-life licensing and investigations, adding more realism to the work experience.</p></div>
-            </div>
-        </div>
-        <div class="detail">
-            <div class="detail-container">
-                <h1 id="detail-title">Latest Contract</h1>
-                <div id="horizontal-scroll-grid" class="news-container"></div>
-            </div>
-        </div>
-        <div class="detail">
-            <div class="detail-container">
-                <h1 id="detail-title">Athena Accords Member</h1>
-                <div id="scroll-grid" class="partner-container"></div>
-            </div>
-        </div>
-        <div class="banner" id="banner-info">
-            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
-            <div class="banner-div">
-                <h1 id="banner-title">Join our Multi-National Contract Mission</h1>
-                <p id="subtext">Athena will sustain Drood presence to Droo or Earth's outer space and other planetary missions.</p>
-            </div>
-        </div>
-        <div class="banner" id="banner-info">
-            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
-            <div class="banner-div">
-                <h1 id="banner-title">Open for All</h1>
-                <p id="subtext">You can also launch by applying to our contract masterlist above.</p>
-            </div>
-        </div>
-        <div class="banner" id="banner-info">
-            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
-            <div class="banner-div">
-                <h1 id="banner-title">Excitement Guaranteed</h1>
-                <p id="subtext">Many flights are in the list, be one of them to launch!</p>
-                <button onclick="window.location.href='https://forms.gle/xexM6DfVhLi3WDQ97';"><h4><b>Learn More</b></h4></button>
-            </div>
+        <div id="article-header">
+            <div id="grid"></div>
         </div>
     </main>
     <footer id="footer">
         <div>
-            <p>© 2025 Spaceflight Exploration</p>
+            <p>© 2021-2024 Spaceflight Exploration</p>
             <p><a href="https://sflightx.com/legal/terms.html">Terms of Use</a> | <a href="https://sflightx.com/legal/privacy_policy.html">Privacy Policy</a></p>
         </div>
         <div id="footer-link">
@@ -102,11 +59,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-    <script src="https://sflightx.com/resources/main/init.js"></script>
 
-    <script src="https://sflightx.com/resources/data/athena/getAccords.js"></script>
-    <script src="https://sflightx.com/resources/data/athena/getContracts.js"></script>
+    <script src="../../resources/main/init.js"></script>
 
-    <script src="https://sflightx.com/resources/auth/authentication.js"></script>
+    <script type="module" src="../../resources/data/athena/getContractDetails.js"></script>
+    <script type="module" src="../../resources/serviceAuth/initializeFirebase.js"></script>
 </body>
 </html>
