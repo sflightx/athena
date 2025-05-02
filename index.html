@@ -1,51 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="version" content="0.3">
-    <meta name="version_date" content="5-11-2024">
+    <meta name="version" content="1.4">
+    <meta name="author" content="SFlightX">
+    <meta name="version_date" content="04-23-2025">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta name="description" content="Athena">
-    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" />
-    <meta property="og:url" content="athena.sflightx.com" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@AthenaJNO" />
-    <meta name="twitter:title" content="Athena JNO" />
-    <meta name="twitter:description"
-        content="AthenaJNO is a private program designed for contract-based missions for all JNO companies." />
-    <meta name="twitter:image"
-        content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9">
+    <meta name="description" content="Browse our collection of Spaceflight Simulator Blueprints and Payloads.">
+    <meta name="keywords" content="SFlightX, App, Tutorial, Help, Spaceflight Simulator, Juno: New Origins">
+    <meta property="og:image" content="https://sflightx.com/resources/static/logo.png" />
+    <meta property="og:url" content="app.sflightx.com/bp" />
 
-    <title>Athena | sFlightX</title>
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/import.css">
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/secondary-layout.css">
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/primary-layout.css">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@SFlightXJNO" />
+    <meta name="twitter:title" content="sFlightX" />
+    <meta name="twitter:description"
+        content="Browse our collection of Spaceflight Simulator Blueprints and Payloads." />
+    <meta name="twitter:image" content="https://sflightx.com/resources/static/logo.png" />
+    <title>SFlightX</title>
+    <link rel="icon" type="image/png" href="https://sflightx.com/resources/static/logo.png">
+
+    <script type="importmap">
+          {
+            "imports": {
+              "@material/web/": "https://esm.run/@material/web/"
+            }
+          }
+        </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://sflightx.com/resources/design/material-imports.css" />
+    <link rel="stylesheet" href="https://sflightx.com/resources/design/material-primary.css" />
+    <link rel="stylesheet" href="https://sflightx.com/resources/design/material-secondary.css" />
+    <link rel="stylesheet" href="https://sflightx.com/resources/design/material-scheme.css" />
+    <link rel="stylesheet" href="https://help.sflightx.com/main.css" />
+    <link rel="stylesheet" href="https://help.sflightx.com/tailwind.css" />
 </head>
 
 <body>
+    <div id="side-sheet">
+        <div id="side-sheet-header">
+            <h3 class="md-typescale-headline-small">SFlightX</h3>
+            <span class="material-symbols-rounded" onclick="toggleSideSheet()">close</span>
+        </div>
+        <nav id="navItems"></nav>
+    </div>
+    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden" onclick="toggleSideSheet()"></div>
     <header>
-        <a href="https://athena.sflightx.com"><img id="header-logo" src="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" alt="Athena Logo" ></a>
-        <ul id="nav_list">
-            <li><a href="https://athena.sflightx.com/contracts"><b>CONTRACTS</b></a><p></p></li>
-            <li><a href="https://athena.sflightx.com/events"><b>EVENTS</b></a><p></p></li>
-            <li><a href="https://athena.sflightx.com/companies"><b>COMPANIES</b></a><p></p></li>
-            <li><a href="https://athena.sflightx.com/contact"><b>CONTACT</b></a><p></p></li>
-            <li><a href="https://co.sflightx.com/"><b>PROFILE</b></a><p></p></li>
-        </ul>
-        <span class="material-symbols-outlined" id="menu">menu</span>
+        <div class="logo">
+            <span class="material-symbols-rounded" onclick="toggleSideSheet()" id="menu">menu</span>
+            <a href="https://sflightx.com">
+                <img id="logo" src="https://sflightx.com/resources/static/logo.png" alt="sFlightX Logo" />
+            </a>
+            <p class="md-typescale-headline-small" id="app-bar-title">SFlightX</p>
+        </div>
+        <div class="action">
+            <label><span class="material-symbols-rounded">dark_mode</span><md-switch
+                    id="themeToggle"></md-switch></label>
+            <!--span id="account" class="material-symbols-rounded">account_circle</span-->
+        </div>
     </header>
     <main>
-        <!-- Content of the main section -->
-        <div class="banner-full" style="background-color: rgb(34, 34, 34); height: auto;">
-            <h1>Athena</h1>
-            <p>AthenaJNO is a private program designed for contract-based missions for all JNO companies.</p>
-            <button onclick="window.location.href='https://co.sflightx.com/dashboard'"><h4>Open Company Manifest</h4></button>
+        <div style="height: 10vh;"></div>
+        <div class="banner" id="semi-full">
+            <div class="container">
+                <h1 class="md-typescale-display-large" style="padding: 0;">Athena</h1>
+                <p class="md-typescale-body-medium">AthenaJNO is a private program designed for contract-based missions for all JNO companies.</p>
+            </div>
+            <md-outlined-button onclick="window.location.href='https://co.sflightx.com/dashboard'">
+                <h4>Open Company Manifest</h4>
+                </md-outlined-butto>
         </div>
         <div class="banner-stat">
             <div class="banner-stat-container">
-                <div class="banner-stat-child"><span class="material-symbols-outlined">shield_person</span><h2>Moderation System</h2><p id="subtext">Trained administrators, moderators and staff are joining our program.</p></div>
-                <div class="banner-stat-child"><span class="material-symbols-outlined">contract</span><h2>Contract System</h2><p id="subtext">Acquire company payloads, complete missions and build trust to the JNO launch community!</p></div>
-                <div class="banner-stat-child"><span class="material-symbols-outlined">license</span><h2>Licensing System</h2><p id="subtext">Simulate real-life licensing and investigations, adding more realism to the work experience.</p></div>
+                <div class="banner-stat-child"><span class="material-symbols-outlined">shield_person</span>
+                    <h2>Moderation System</h2>
+                    <p id="subtext">Trained administrators, moderators and staff are joining our program.</p>
+                </div>
+                <div class="banner-stat-child"><span class="material-symbols-outlined">contract</span>
+                    <h2>Contract System</h2>
+                    <p id="subtext">Acquire company payloads, complete missions and build trust to the JNO launch
+                        community!</p>
+                </div>
+                <div class="banner-stat-child"><span class="material-symbols-outlined">license</span>
+                    <h2>Licensing System</h2>
+                    <p id="subtext">Simulate real-life licensing and investigations, adding more realism to the work
+                        experience.</p>
+                </div>
             </div>
         </div>
         <div class="detail">
@@ -61,56 +110,88 @@
             </div>
         </div>
         <div class="banner" id="banner-info">
-            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
+            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center."
+                class="banner-img">
             <div class="banner-div">
                 <h1 id="banner-title">Join our Multi-National Contract Mission</h1>
-                <p id="subtext">Athena will sustain Drood presence to Droo or Earth's outer space and other planetary missions.</p>
+                <p id="subtext">Athena will sustain Drood presence to Droo or Earth's outer space and other planetary
+                    missions.</p>
             </div>
         </div>
         <div class="banner" id="banner-info">
-            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
+            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center."
+                class="banner-img">
             <div class="banner-div">
                 <h1 id="banner-title">Open for All</h1>
                 <p id="subtext">You can also launch by applying to our contract masterlist above.</p>
             </div>
         </div>
         <div class="banner" id="banner-info">
-            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center." class="banner-img">
+            <img src="https://i.imgur.com/86aRvan.png" alt="Launch Complex C, at Bataan Space Center."
+                class="banner-img">
             <div class="banner-div">
                 <h1 id="banner-title">Excitement Guaranteed</h1>
                 <p id="subtext">Many flights are in the list, be one of them to launch!</p>
-                <button onclick="window.location.href='https://forms.gle/xexM6DfVhLi3WDQ97';"><h4><b>Learn More</b></h4></button>
+                <button onclick="window.location.href='https://forms.gle/xexM6DfVhLi3WDQ97';">
+                    <h4><b>Learn More</b></h4>
+                </button>
             </div>
         </div>
-    </main>
-    <footer id="footer">
-        <div>
-            <p>© 2025 Spaceflight Exploration</p>
-            <p><a href="https://sflightx.com/legal/terms.html">Terms of Use</a> | <a href="https://sflightx.com/legal/privacy_policy.html">Privacy Policy</a></p>
-        </div>
-        <div id="footer-link">
-            <a href="https://x.com/SFlightXJNO"><img src="https://img.icons8.com/?size=100&id=Q33YQBzI2lZs&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://youtube.com/@sflightx"><img src="https://img.icons8.com/?size=100&id=85162&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://facebook.com/sflightx"><img src="https://img.icons8.com/?size=100&id=85126&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://bsky.app/profile/sflightx.com"><img src="https://img.icons8.com/?size=100&id=MGqlXOe8ksH0&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://simplerockets.com/u/sflightx"><img src="https://img.icons8.com/?size=100&id=COgXDnufRVRP&format=png&color=FFFFFF" class="footer-link-img"></a>
-        </div>
-    </footer>
+        <footer>
+            <div id="horizontal-footer">
 
+                <div id="footer-logo">
+                    <a href="https://sflightx.com"><img id="footer-logo"
+                            src="https://sflightx.com/resources/static/logo.png" alt="sFlightX Logo" /></a>
+                    <p class="md-typescale-body-medium">SFlightX is not affiliated with Spaceflight Simulator or Juno:
+                        New
+                        Origins. This website is not affiliated with Space Exploration Technologies (SpaceX).</p>
+                    <p class="md-typescale-body-medium">© 2021-2025 SFlightX. All rights reserved.</p>
+                </div>
+                <div id="legal-link">
+                    <div id="icon-link">
+                        <a href="https://x.com/SFlightXJNO"><img
+                                src="https://img.icons8.com/?size=100&id=Q33YQBzI2lZs&format=png&color=FFFFFF"
+                                class="footer-link-img"></a>
+                        <a href="https://youtube.com/@sflightx"><img
+                                src="https://img.icons8.com/?size=100&id=85162&format=png&color=FFFFFF"
+                                class="footer-link-img"></a>
+                        <a href="https://facebook.com/sflightx"><img
+                                src="https://img.icons8.com/?size=100&id=85126&format=png&color=FFFFFF"
+                                class="footer-link-img"></a>
+                        <a href="https://bsky.app/profile/sflightx.com"><img
+                                src="https://img.icons8.com/?size=100&id=MGqlXOe8ksH0&format=png&color=FFFFFF"
+                                class="footer-link-img"></a>
+                        <a href="https://simplerockets.com/u/sflightx"><img
+                                src="https://img.icons8.com/?size=100&id=COgXDnufRVRP&format=png&color=FFFFFF"
+                                class="footer-link-img"></a>
+                    </div>
+                    <div class="text-link">
+                        <a href="https://sflightx.com/legal/terms" target="_self">Terms of Service</a>
+                        <a href="https://sflightx.com/legal/privacy" target="_self">Privacy Policy</a>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </main>
+    <script src="https://sflightx.com/resources/function/drawer.js"></script>
+    <script src="https://sflightx.com/resources/function/scroll.js"></script>
+    <script src="https://sflightx.com/resources/function/theme-mode.js"></script>
+    <script src="https://sflightx.com/resources/data/main-navigation.js"></script>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-    
-    <script src="https://sflightx.com/resources/lifeCycle/initializationConfig.js"></script>
 
     <script src="https://sflightx.com/resources/serviceAuth/initializeFirebase.js"></script>
     <script src="https://sflightx.com/resources/auth/authentication.js"></script>
 
     <script src="https://sflightx.com/resources/data/athena/getAccords.js"></script>
     <script src="https://sflightx.com/resources/data/athena/getContracts.js"></script>
-    
-    
+
+
 </body>
+
 </html>
