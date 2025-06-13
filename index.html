@@ -23,27 +23,50 @@
     <link rel="icon" type="image/png" href="https://sflightx.com/resources/static/athena/athena.png">
 
     <script type="importmap">
-          {
-            "imports": {
-              "@material/web/": "https://esm.run/@material/web/"
-            }
-          }
-        </script>
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+    </script>
     <script type="module">
         import '@material/web/all.js';
         import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
         document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://sflightx.com/resources/design/material-imports.css" />
-    <link rel="stylesheet" href="../../resources/design/material-primary.css" />
-    <link rel="stylesheet" href="../../resources/design/material-secondary.css" />
-    <link rel="stylesheet" href="https://sflightx.com/resources/design/material-scheme.css" />
-    <link rel="stylesheet" href="https://help.sflightx.com/main.css" />
-    <link rel="stylesheet" href="https://help.sflightx.com/tailwind.css" />
+    <style>
+        #cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+            height: 75vh;
+            background-image: url('https://sflightx.com/resources/static/athena/athena_cover.png');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.75);
+            background-blend-mode: overlay;
+        }
+        #cover .material-symbols-rounded {
+            width: 100%;
+            font-size: 48px !important;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .container > * {
+            width: 100%;
+            text-align: center;
+        }
+        #subtext {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        #members, #contracts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://sflightx.com/resources/v4/element/material-dependency.css" />
 </head>
 
 <body>
@@ -59,61 +82,57 @@
         <div class="logo">
             <span class="material-symbols-rounded" onclick="toggleSideSheet()" id="menu">menu</span>
             <a href="https://sflightx.com">
-                <img id="logo" src="https://sflightx.com/resources/static/athena/athena.png" alt="Athena Logo" />
+                <img src="https://sflightx.com/resources/v4/database/logo/logo.png" alt="sFlightX Logo" />
             </a>
-            <p class="md-typescale-headline-small" id="app-bar-title">Athena</p>
         </div>
-        <div class="action">
+        <div style="display: flex; gap: 1rem;">
+            <!--md-outlined-button href="https://auth.sflightx.com" style="margin: 8px 0px;"
+                class="md-typescale-title-small">Log In</md-outlined-button-->
             <label><span class="material-symbols-rounded">dark_mode</span><md-switch
                     id="themeToggle"></md-switch></label>
-            <!--span id="account" class="material-symbols-rounded">account_circle</span-->
         </div>
     </header>
     <main>
-        <div style="height: 10vh;"></div>
-        <div class="banner" id="semi-full">
-            <div class="container">
+        <div indent="all" id="cover">
+            <div>
                 <h1 class="md-typescale-display-large" style="padding: 0;">Athena</h1>
                 <p class="md-typescale-body-large">AthenaJNO is a private program designed for contract-based missions
                     for all JNO companies.</p>
+                    
             </div>
-            <!--md-outlined-button onclick="window.location.href='https://app.sflightx.com/dashboard'">
-                <h4>Open Company Manifest</h4>
-                </md-outlined-button-->
-        </div>
-        <div>
-            <div class="banner" id="stat" style="text-align: center;">
-                <div class="container"><span class="material-symbols-rounded" style="font-size: 48px;">shield_person</span>
-                    <h4 class="md-typescale-headline-large">Moderation System</h4>
-                    <p class="md-typescale-body-large" id="subtext">Trained administrators, moderators and staff are joining our program.</p>
+            <div id="grid" type="auto">
+                <div class="container" shape="rounded">
+                    <span class="material-symbols-rounded" indent="top">shield_person</span>
+                    <h5 class="md-typescale-headline-medium">Moderation System</h5>
+                    <p class="md-typescale-body-large" id="subtext" indent="bottom horizontal">Trained administrators, moderators and staff are
+                        joining our program.</p>
                 </div>
-                <div class="container"><span class="material-symbols-rounded" style="font-size: 48px;">contract</span>
-                    <h4 class="md-typescale-headline-large">Contract System</h4>
-                    <p class="md-typescale-body-large" id="subtext">Acquire company payloads, complete missions and build trust to the JNO launch
+                <div class="container" shape="rounded">
+                    <span class="material-symbols-rounded"  indent="top">contract</span>
+                    <h5 class="md-typescale-headline-medium">Contract System</h5>
+                    <p class="md-typescale-body-large" id="subtext" indent="bottom horizontal">Acquire company payloads, complete missions and
+                        build trust to the JNO launch
                         community!</p>
                 </div>
-                <div class="container"><span class="material-symbols-rounded" style="font-size: 48px;">license</span>
-                    <h4 class="md-typescale-headline-large">Licensing System</h4>
-                    <p class="md-typescale-body-large" id="subtext">Simulate real-life licensing and investigations, adding more realism to the work
-                        experience.</p>
-                </div>
             </div>
         </div>
-        <div class="secondary-container">
+        <div indent="all">
             <div class="banner">
-                <h4 class="md-typescale-headline-large">Latest Contract</h4>
-                <div class="banner" id="contracts"></div>
+                <h4 class="md-typescale-display-medium">Latest Contract</h4>
+                <di id="contracts"></div>
             </div>
         </div>
-        <div class="secondary-container">
+        <div indent="all">
             <div class="banner">
-                <h4 class="md-typescale-headline-large">Athena Accords Member</h4>
-                <div class="banner" id="member"></div>
+                <h4 class="md-typescale-display-medium">Athena Accords Member</h4>
+                <div id="members"></div>
             </div>
         </div>
-        <div class="secondary-banner" id="full" style="background-image: url('https://sflightx.com/resources/static/misc/earth.png'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.75); background-blend-mode: overlay;">
-            <div >
-                <h4 class="md-typescale-headline-large" style="padding: 0;">Join our Multi-National Contract Mission</h4>
+        <div class="secondary-banner" id="full"
+            style="background-image: url('https://sflightx.com/resources/static/misc/earth.png'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.75); background-blend-mode: overlay;">
+            <div>
+                <h4 class="md-typescale-headline-large" style="padding: 0;">Join our Multi-National Contract Mission
+                </h4>
                 <p id="subtext">Athena will sustain Drood presence to Droo or Earth's outer space and other planetary
                     missions.</p>
             </div>
@@ -133,62 +152,18 @@
                 </md-filled-tonal-button>
             </div>
         </div>
-        <footer>
-            <div id="horizontal-footer">
-
-                <div id="footer-logo">
-                    <a href="https://sflightx.com"><img id="footer-logo"
-                            src="https://sflightx.com/resources/static/logo.png" alt="sFlightX Logo" /></a>
-                    <p class="md-typescale-body-medium">SFlightX is not affiliated with Spaceflight Simulator or Juno:
-                        New
-                        Origins. This website is not affiliated with Space Exploration Technologies (SpaceX).</p>
-                    <p class="md-typescale-body-medium">© 2021-2025 SFlightX. All rights reserved.</p>
-                </div>
-                <div id="legal-link">
-                    <div id="icon-link">
-                        <a href="https://x.com/SFlightXJNO"><img
-                                src="https://img.icons8.com/?size=100&id=Q33YQBzI2lZs&format=png&color=FFFFFF"
-                                class="footer-link-img"></a>
-                        <a href="https://youtube.com/@sflightx"><img
-                                src="https://img.icons8.com/?size=100&id=85162&format=png&color=FFFFFF"
-                                class="footer-link-img"></a>
-                        <a href="https://facebook.com/sflightx"><img
-                                src="https://img.icons8.com/?size=100&id=85126&format=png&color=FFFFFF"
-                                class="footer-link-img"></a>
-                        <a href="https://bsky.app/profile/sflightx.com"><img
-                                src="https://img.icons8.com/?size=100&id=MGqlXOe8ksH0&format=png&color=FFFFFF"
-                                class="footer-link-img"></a>
-                        <a href="https://simplerockets.com/u/sflightx"><img
-                                src="https://img.icons8.com/?size=100&id=COgXDnufRVRP&format=png&color=FFFFFF"
-                                class="footer-link-img"></a>
-                    </div>
-                    <div class="text-link">
-                        <a href="https://sflightx.com/legal/terms" target="_self">Terms of Service</a>
-                        <a href="https://sflightx.com/legal/privacy" target="_self">Privacy Policy</a>
-                    </div>
-                </div>
-
-            </div>
-        </footer>
+        <sflightx-footer></sflightx-footer>
     </main>
-    <script src="https://sflightx.com/resources/function/drawer.js"></script>
-    <script src="https://sflightx.com/resources/function/scroll.js"></script>
-    <script src="https://sflightx.com/resources/function/theme-mode.js"></script>
-    <script src="https://sflightx.com/resources/data/athena-navigation.js"></script>
+    <script type="module" src="https://sflightx.com/resources/v4/function/serviceAuth/initializeFirebase.js"></script>
+    <script src="https://sflightx.com/resources/v4/dependency.js"></script>
+    <!--script src="https://sflightx.com/resources/v4/data/drawer/sflightx_com/index.js"></script-->
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-
-    <script src="https://sflightx.com/resources/serviceAuth/initializeFirebase.js"></script>
-    <script src="https://sflightx.com/resources/auth/authentication.js"></script>
-
-    <script src="https://sflightx.com/resources/data/athena/getAccords.js"></script>
-    <script src="https://sflightx.com/resources/data/athena/getContracts.js"></script>
+    <script type="module" src="../resources/v4/function/athena/getAccords.js"></script>
+    <script type="module" src="../resources/v4/function/athena/getContracts.js"></script>
 
 
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
 
 </html>

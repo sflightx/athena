@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="version" content="0.3">
     <meta name="version_date" content="5-11-2024">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta name="description" content="AthenaJNO is a private program designed for contract-based missions for all JNO companies.">
-    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" />
+    <meta name="description"
+        content="AthenaJNO is a private program designed for contract-based missions for all JNO companies.">
+    <meta property="og:image"
+        content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" />
     <meta property="og:url" content="athena.sflightx.com/contracts" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@AthenaJNO" />
@@ -17,54 +20,58 @@
         content="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9">
 
     <title>Athena | Contracts</title>
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/import.css">
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/secondary-layout.css">
-    <link rel="stylesheet" href="https://sflightx.com/resources/main/primary-layout.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+    </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <link rel="stylesheet" href="https://sflightx.com/resources/v4/element/material-dependency.css" />
 </head>
 
 <body>
+    <div id="side-sheet">
+        <div id="side-sheet-header">
+            <h3 class="md-typescale-headline-small">SFlightX</h3>
+            <span class="material-symbols-rounded" onclick="toggleSideSheet()">close</span>
+        </div>
+        <nav id="navItems"></nav>
+    </div>
+    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden" onclick="toggleSideSheet()"></div>
     <header>
-        <a href="https://athena.sflightx.com"><img id="header-logo" src="https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fathena.sflightx.com%2Fimg%2Fathena_logo_icon.png?alt=media&token=a4cd11e7-6850-4382-8374-d546ff992aa9" alt="Athena Logo" ></a>
-        <ul id="nav_list">
-            <li><a href="https://athena.sflightx.com/contracts"><b>CONTRACTS</b></a><p></p></li>
-            <li><a href="https://athena.sflightx.com/events"><b>EVENTS</b></a><p></p></li>
-            <li><a href="https://athena.sflightx.com/companies"><b>COMPANIES</b></a><p></p></li>
-            <li><a href="https://athena.sflightx.com/contact"><b>CONTACT</b></a><p></p></li>
-            <li><a href="https://co.sflightx.com/"><b>PROFILE</b></a><p></p></li>
-        </ul>
-        <span class="material-symbols-outlined" id="menu">menu</span>
+        <div class="logo">
+            <span class="material-symbols-rounded" onclick="toggleSideSheet()" id="menu">menu</span>
+            <a href="https://sflightx.com">
+                <img src="https://sflightx.com/resources/v4/database/logo/logo.png" alt="sFlightX Logo" />
+            </a>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <!--md-outlined-button href="https://auth.sflightx.com" style="margin: 8px 0px;"
+                class="md-typescale-title-small">Log In</md-outlined-button-->
+            <label><span class="material-symbols-rounded">dark_mode</span><md-switch
+                    id="themeToggle"></md-switch></label>
+        </div>
     </header>
-    <main style="padding-top: 7.5vh;">
+    <main>
         <!-- Content of the main section -->
         <div id="article-header">
             <div id="grid"></div>
         </div>
+        <sflightx-footer></sflightx-footer>
     </main>
-    <footer id="footer">
-        <div>
-            <p>© 2021-2024 Spaceflight Exploration</p>
-            <p><a href="https://sflightx.com/legal/terms.html">Terms of Use</a> | <a href="https://sflightx.com/legal/privacy_policy.html">Privacy Policy</a></p>
-        </div>
-        <div id="footer-link">
-            <a href="https://x.com/SFlightXJNO"><img src="https://img.icons8.com/?size=100&id=Q33YQBzI2lZs&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://youtube.com/@sflightx"><img src="https://img.icons8.com/?size=100&id=85162&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://facebook.com/sflightx"><img src="https://img.icons8.com/?size=100&id=85126&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://bsky.app/profile/sflightx.com"><img src="https://img.icons8.com/?size=100&id=MGqlXOe8ksH0&format=png&color=FFFFFF" class="footer-link-img"></a>
-            <a href="https://simplerockets.com/u/sflightx"><img src="https://img.icons8.com/?size=100&id=COgXDnufRVRP&format=png&color=FFFFFF" class="footer-link-img"></a>
-        </div>
-    </footer>
+    
+    <script type="module" src="https://sflightx.com/resources/v4/function/serviceAuth/initializeFirebase.js"></script>
+    <script src="https://sflightx.com/resources/v4/dependency.js"></script>
+    <!--script src="https://sflightx.com/resources/v4/data/drawer/sflightx_com/index.js"></script-->
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-
-    <script src="https://sflightx.com/resources/lifeCycle/initializationConfig.js"></script>
-
-    <script src="https://sflightx.com/resources/serviceAuth/initializeFirebase.js"></script>
-    <script src="https://sflightx.com/resources/auth/authentication.js"></script>
-
-    <script type="module" src="../../resources/data/athena/getContractDetails.js"></script>
+    <script type="module" src="../resources/v4/function/athena/getContractsDetails.js"></script>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
 </html>
